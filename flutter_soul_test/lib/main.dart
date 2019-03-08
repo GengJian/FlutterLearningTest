@@ -55,6 +55,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  //_MyHomePageState类是MyHomePage类对应的状态类
+
   int _counter = 0;
 
   void _incrementCounter() {
@@ -110,6 +112,17 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            FlatButton(
+              child: Text("open new route"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) {
+                  return new NewRoute();
+                }));
+              },
+            )
           ],
         ),
       ),
@@ -118,6 +131,21 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+//上一节“计数器”示例的基础上,创建一个新路由,命名“NewRoute”
+class NewRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("New Route"),
+      ),
+      body: Center(
+        child: Text("This is new route"),
+      ),
     );
   }
 }
