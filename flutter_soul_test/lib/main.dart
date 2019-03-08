@@ -118,7 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 //导航到新路由
                 Navigator.push(context,
+                    //Navigator是一个路由管理的widget，它通过一个栈来管理一个路由widget集合。通常当前屏幕显示的页面就是栈顶的路由。
                     new MaterialPageRoute(builder: (context) {
+                  //MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，他还定义了路由构建及切换时过渡动画的相关接口及属性。
+                  //MaterialPageRoute 是Material组件库的一个Widget，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画（就是iOS和Android上动画不同的意思）。
                   return new NewRoute();
                 }));
               },
