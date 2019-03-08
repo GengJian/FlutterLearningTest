@@ -1,5 +1,5 @@
 #一个完整的应用程序往往会依赖很多第三方包，正如在原生开发中，Android使用Gradle来管理依赖，iOS用Cocoapods或Carthage来管理依赖，而Flutter也有自己的依赖管理工具
-#pubspec.yaml就是Flutter用来管理第三方依赖包的
+#pubspec.yaml就是Flutter用来管理第三方依赖包/资源包/项目配置的
 #YAML是一种直观、可读性高并且容易被人类阅读的文件格式，它和xml或Json相比，它语法简单并非常容易解析，所以YAML常用于配置文件
 name: flutter_soul_test #应用或者包名称#上边不要留空行，会报错
 description: A new Flutter project 4 Soul learning.   #应用或者包的描述和简介
@@ -49,9 +49,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
-  #  - images/a_dot_ham.jpeg
+  assets:
+    #assets指定应包含在应用程序中的文件。 每个asset都通过相对于pubspec.yaml文件所在位置的显式路径进行标识。asset的声明顺序是无关紧要的。asset的实际目录可以是任意文件夹
+   - images/test_octopus.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

@@ -133,7 +133,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 // }));
               },
             ),
-            RandomWordsWidget()
+            RandomWordsWidget(),//添加一个我们自定义的随机字符串控件
+
           ],
         ),
       ),
