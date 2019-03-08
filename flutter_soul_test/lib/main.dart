@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart'; //导入包,这里是导入了Material UI组件库,Material 是一种标准的移动端和Web端视觉设计语言,Flutter默认提供了一套Material风格的UI组件
+import 'package:flutter/material.dart'; //导入包,这里是导入了Material UI组件库,Material 是一种标准的移动端和Web端视觉设计语言,Flutter默认提供了一套Material风格的UI组
+import 'package:english_words/english_words.dart';
 
 void main() =>
     runApp(MyApp()); //应用入口Main函数.main函数调用了runApp方法,接受了一个Widget参数.=>是单行函数或者方法的简写
@@ -120,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("open new route"),
               textColor: Colors.blue,
               onPressed: () {
-                //通过路由名打开新路由页
+                //通过路由名打开新路由页,命名路由的最大优点是直观，我们可以通过语义化的字符串来管理路由。但其有一个明显的缺点：不能直接传递路由参数。
                 Navigator.pushNamed(context, "new_page");
                 //导航到新路由
                 // Navigator.push(context,
@@ -131,7 +132,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 //   return new NewRoute();
                 // }));
               },
-            )
+            ),
+            RandomWordsWidget()
           ],
         ),
       ),
@@ -144,6 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+//==========新建Route/ViewController/Activity==========
 //上一节“计数器”示例的基础上,创建一个新路由,命名“NewRoute”
 class NewRoute extends StatelessWidget {
   @override
@@ -155,6 +158,19 @@ class NewRoute extends StatelessWidget {
       body: Center(
         child: Text("This is new route"),
       ),
+    );
+  }
+}
+
+//==========导入三方包demo==========
+class RandomWordsWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    //生成随机字符串
+    final wordPair = new WordPair.random();
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: new Text(wordPair.toString()),
     );
   }
 }

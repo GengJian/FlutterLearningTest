@@ -1,5 +1,8 @@
-name: flutter_soul_test
-description: A new Flutter project.
+#一个完整的应用程序往往会依赖很多第三方包，正如在原生开发中，Android使用Gradle来管理依赖，iOS用Cocoapods或Carthage来管理依赖，而Flutter也有自己的依赖管理工具
+#pubspec.yaml就是Flutter用来管理第三方依赖包的
+#YAML是一种直观、可读性高并且容易被人类阅读的文件格式，它和xml或Json相比，它语法简单并非常容易解析，所以YAML常用于配置文件
+name: flutter_soul_test #应用或者包名称#上边不要留空行，会报错
+description: A new Flutter project 4 Soul learning.   #应用或者包的描述和简介
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -11,20 +14,25 @@ description: A new Flutter project.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.0+1  #应用或者包的版本号+build版本号（相当于iOS里的CFBundleShortVersionString+CFBundleVersion，相当于Android里的versionName+versionCode）
 
-environment:
+environment:  #应用或者包指定的环境
   sdk: ">=2.1.0 <3.0.0"
 
-dependencies:
+#Pub（https://pub.dartlang.org/ ）是Google官方的Dart Packages仓库
+#类似于node中的npm仓库，android中的jcenter，iOS中的cocoapods
+#我们可以在上面查找我们需要的包和插件，也可以向pub发布我们的包和插件
+
+dependencies:   #应用或者包依赖的其它包或插件
   flutter:
     sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
+  english_words: ^3.1.3   # 新添加的英文三方库
 
-dev_dependencies:
+dev_dependencies: #应用或者包开发环境依赖的工具包（而不是Flutter应用本身依赖的包）
   flutter_test:
     sdk: flutter
 
