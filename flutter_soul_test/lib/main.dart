@@ -23,6 +23,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red, //系统主题色,导航栏/按钮之类的
       ),
+      routes: {
+        //注册路由表
+        "new_page": (context) => NewRoute(),
+      },
       home: MyHomePage(title: 'Flutter Demo Ted Page'), //应用首页路由
     );
   }
@@ -116,14 +120,16 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("open new route"),
               textColor: Colors.blue,
               onPressed: () {
+                //通过路由名打开新路由页
+                Navigator.pushNamed(context, "new_page");
                 //导航到新路由
-                Navigator.push(context,
-                    //Navigator是一个路由管理的widget，它通过一个栈来管理一个路由widget集合。通常当前屏幕显示的页面就是栈顶的路由。
-                    new MaterialPageRoute(builder: (context) {
-                  //MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，他还定义了路由构建及切换时过渡动画的相关接口及属性。
-                  //MaterialPageRoute 是Material组件库的一个Widget，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画（就是iOS和Android上动画不同的意思）。
-                  return new NewRoute();
-                }));
+                // Navigator.push(context,
+                //     //Navigator是一个路由管理的widget，它通过一个栈来管理一个路由widget集合。通常当前屏幕显示的页面就是栈顶的路由。
+                //     new MaterialPageRoute(builder: (context) {
+                //   //MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，他还定义了路由构建及切换时过渡动画的相关接口及属性。
+                //   //MaterialPageRoute 是Material组件库的一个Widget，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画（就是iOS和Android上动画不同的意思）。
+                //   return new NewRoute();
+                // }));
               },
             )
           ],
