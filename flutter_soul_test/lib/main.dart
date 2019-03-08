@@ -1,13 +1,16 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; //导入包,这里是导入了Material UI组件库,Material 是一种标准的移动端和Web端视觉设计语言,Flutter默认提供了一套Material风格的UI组件
 
-void main() => runApp(MyApp());
+void main() =>
+    runApp(MyApp()); //应用入口Main函数.main函数调用了runApp方法,接受了一个Widget参数.=>是单行函数或者方法的简写
 
 class MyApp extends StatelessWidget {
+  //MyApp类代表Flutter应用,继承了StatelessWidget类,意味着应用本身就是一个Widget.（Flutter大多是东西都是widget,包括Alignment/Padding/Layout）.
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    //Flutter在构建页面时,会调用组件的build方法,widget的主要工作是提供以一个build方法()来描述如何构建UI界面(通常是通过组合、拼装其他基础Widget).
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Flutter Demo', //应用名称
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -18,14 +21,22 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.red, //系统主题色,导航栏/按钮之类的
       ),
-      home: MyHomePage(title: 'Flutter Demo Ted Page'),
+      home: MyHomePage(title: 'Flutter Demo Ted Page'), //应用首页路由
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  //MyHomePage是应用的首页,它继承自StatefulWidget类，表明它是一个有状态的Widget
+  /*
+    Stateful widget可以拥有状态，这些状态在widget生命周期中是可以变的，而Stateless widget是不可变的。
+    Stateful widget至少由两个类组成：
+
+    一个StatefulWidget类。
+    一个 State类； StatefulWidget类本身是不变的，但是 State类中持有的状态在widget生命周期中可能会发生变化。
+  */
   MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -66,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      //Scaffold是Material库中提供的页面脚手架，它包含了导航栏和Body以及FloatingActionButton。在实例中，路由默认都是通过Scaffold创建的。
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
