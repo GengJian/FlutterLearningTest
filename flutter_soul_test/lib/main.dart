@@ -111,30 +111,38 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
+              'Soul Learning',
+            ),
+            Text(
+              'You have 按了 the button this many times:',
             ),
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+             FlatButton(
+                child:Text("直接跳转到NewRoute") ,
+                textColor: Colors.green,
+                onPressed: (){
+                //导航到新路由
+                Navigator.push(context,
+                    //Navigator是一个路由管理的widget，它通过一个栈来管理一个路由widget集合。通常当前屏幕显示的页面就是栈顶的路由。
+                    new MaterialPageRoute(builder: (context) {
+                  //MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，他还定义了路由构建及切换时过渡动画的相关接口及属性。
+                  //MaterialPageRoute 是Material组件库的一个Widget，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画（就是iOS和Android上动画不同的意思）。
+                  return new NewRoute();
+                }));
+                },
+            ),
             FlatButton(
-              child: Text("open new route"),
+              child: Text("通过注册路由跳转到NewRoute"),
               textColor: Colors.blue,
               onPressed: () {
                 //通过路由名打开新路由页,命名路由的最大优点是直观，我们可以通过语义化的字符串来管理路由。但其有一个明显的缺点：不能直接传递路由参数。
                 Navigator.pushNamed(context, "new_page");
-                //导航到新路由
-                // Navigator.push(context,
-                //     //Navigator是一个路由管理的widget，它通过一个栈来管理一个路由widget集合。通常当前屏幕显示的页面就是栈顶的路由。
-                //     new MaterialPageRoute(builder: (context) {
-                //   //MaterialPageRoute继承自PageRoute类，PageRoute类是一个抽象类，表示占有整个屏幕空间的一个模态路由页面，他还定义了路由构建及切换时过渡动画的相关接口及属性。
-                //   //MaterialPageRoute 是Material组件库的一个Widget，它可以针对不同平台，实现与平台页面切换动画风格一致的路由切换动画（就是iOS和Android上动画不同的意思）。
-                //   return new NewRoute();
-                // }));
               },
             ),
-            RandomWordsWidget(),//添加一个我们自定义的随机字符串控件
-
+            RandomWordsWidget(), //添加一个我们自定义的随机字符串控件
           ],
         ),
       ),
